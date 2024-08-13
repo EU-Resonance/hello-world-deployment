@@ -1,3 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: regcred
+  namespace: default
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyItLWRvY2tlci1zZXJ2ZXI9aHR0cHM6Ly9naGNyLmlvIjp7InVzZXJuYW1lIjoicnlhbi5rZm9yZEBpY2xvdWQuY29tIiwicGFzc3dvcmQiOiJnaHBfODY3akFPNjFWN1E2YWZ5RWVNRW0zTmxaZTh3QlJrMURKQk5PIiwiZW1haWwiOiJyeWFuLmtmb3JkQGljbG91ZC5jb20ifX19
+type: kubernetes.io/dockerconfigjson
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,3 +28,5 @@ spec:
         image: ghcr.io/eu-resonance/hello-world-stage:latest
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred
