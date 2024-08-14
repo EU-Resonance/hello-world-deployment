@@ -10,7 +10,7 @@ spec:
   - host: localhost
     http:
       paths:
-      - path: /flask-application
+      - path: /flask-hello-world-stage
         pathType: Prefix
         backend:
           service:
