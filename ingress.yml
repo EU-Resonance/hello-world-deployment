@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flask-application-ingress
+  name: hello-world-stage-application-ingress
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -10,7 +10,7 @@ spec:
   - host: localhost
     http:
       paths:
-      - path: /flask-hello-world-stage
+      - path: /hello-world-stage
         pathType: Prefix
         backend:
           service:
